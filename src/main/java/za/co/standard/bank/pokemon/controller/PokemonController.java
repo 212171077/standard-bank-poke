@@ -34,19 +34,6 @@ public class PokemonController {
     @Autowired
     private CommonUtil commonUtil;
 
-    @GetMapping("/save-role")
-    public String saveRoles() {
-
-        Role role1 = new Role();
-        role1.setName(ERole.ROLE_USER);
-        roleRepository.saveAndFlush(role1);
-
-        role1 = new Role();
-        role1.setName(ERole.ROLE_ADMIN);
-        roleRepository.saveAndFlush(role1);
-
-        return "Success!";
-    }
 
     @GetMapping("/get-resources")
     @PreAuthorize("hasRole('ADMIN')")
