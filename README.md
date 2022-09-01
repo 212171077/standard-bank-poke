@@ -9,7 +9,8 @@ Standard Bank Assessment - Java: Java Backend Engineering challenge
 * IntelliJ
 * Java 17
 ## Swagger URL
-* http://localhost:8081/swagger-ui/
+* LOCAL HOST: http://localhost:8081/swagger-ui/
+* AWS: http://3.139.73.229:8081/swagger-ui/#/
 
 ## Contact
 

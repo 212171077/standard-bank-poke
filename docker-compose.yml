@@ -1,0 +1,27 @@
+version: '3.1'
+services:
+  mysql_db:
+    image: mysql:8.0
+    command: --default-authentication-plugin=mysql_native_password
+    restart: always
+    ports:
+      - 3307:3306
+    environment:
+      - MYSQL_DATABASE=pokemon_db
+      - MYSQL_ROOT_PASSWORD=Venus@18
+    volumes:
+      - my-db:/var/lib/mysql
+
+  standard_bank_poke_app:
+    image: standard-bank-poke-img:latest
+    ports:
+      - 8081:8081
+    environment:
+      - DB_SERVER=mysql_db
+      - MYSQL_DATABASE=pokemon_db
+      - MYSQL_USER=root
+      - MYSQL_PASSWORD=Venus@18
+    links:
+      - mysql_db
+volumes:
+  my-db:
