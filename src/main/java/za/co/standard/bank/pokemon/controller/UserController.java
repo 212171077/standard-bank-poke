@@ -175,7 +175,7 @@ public class UserController {
         Optional<User> optionalUser = userRepository.findById(changePassRequest.getUserId());
         if (optionalUser.isPresent()) {
             User user = optionalUser.get();
-            if (encoder.matches(user.getPassword(), changePassRequest.getOldPassword())) {
+            if (encoder.matches(changePassRequest.getOldPassword(), user.getPassword())) {
                 user.setPassword(encoder.encode(changePassRequest.getNewPassword()));
                 userRepository.save(user);
                 LOGGER.info("Password updated, User ID: {}", changePassRequest.getUserId());
